@@ -1,0 +1,15 @@
+Darle mantenimiento a tu sitio web:
+
+Esto se refiere a actualizar la pagina, agregar algo o cambiar los estilos, agregar funciones a tu script de python, etc. 
+
+Cuando acabas de actualizar algo que no has subido a tu repositorio va a salir marcado en color naranja.
+
+Checas que tu sitio web este funcionando de la manera esperada e inicias sesion en heroku, procedes a checar que estes conectado correctamente con heroku info 
+
+Si no has especificado que aplicacion vas a actualizar es importante hacerlo ahora, el comando es heroku git:remote --app nombre_de_tu_app
+
+Agregas los cambios al repositorio de git, esto se hace con git add . 
+
+Subes los cambios con git commit -m "Mensaje de los cambios realizados"
+
+Procedes a empujar los cambios con git push heroku master

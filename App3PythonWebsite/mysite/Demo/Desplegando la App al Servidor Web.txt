@@ -1,0 +1,50 @@
+Notas:
+Por metodos convencionales puedes utilizar Filezilla para subir tus archivos al servidor, subiendo tus archivos de html css js php etc.
+Sin embargo con python la aplicacion se despliega desde tu terminal, utilizando la linea de comandos 
+
+
+Pasos:
+1. Crear una cuenta en Heroku o en tu servidor Web 
+2. Descargar Heroku Toolbelt o la manera en la que te vas a comunicar con el servidor de tu host
+3. Te metes a la direccion de tu proyecto desde el cmd ( C:\Users\CeciliaRodríguez\Desktop\Angel\TPMCB10RWA\App3PythonWebsite\mysite\Demo> heroku login )
+    e inicias sesion en heroku
+4. Llamas a heroku y creas la aplicacion, el nombre que le des a la aplicacion es el nombre que tendra el dominio
+    Puedes ver que apps tienes con heroku apps
+5. Para subir archivos a heroku utilizamos Git, Git es un sistema de control de versiones
+    Necesitas tener 3 archivos para subir algo a Heroku:
+        Abres la linea de comandos en Demo:
+        1. Requirements.txt: Tiene las dependencias que quieres que Heroku instale (en este caso Flask), tienes que hacer pip freeze
+            en tu entorno virtual para hacer esto puedes utilizar el siguiente comando de ejemplo ..\virtual\Scripts\pip freeze, si utilizas pip freeze sin apuntar a tu carpeta virtual en especifico
+            te va a dar todas las dependencias que tengas. 
+                Falta instalar GUNICORN que es un WSGI (Web Server Gateway Interface) este es el puente de comunicacion entre el servidor web y tu servidor como Flask o Django
+                ..\virtual\Scripts\pip install gunicorn
+                    Para ponerlos todos en un archivo puedes hacer lo siquiente: 
+                    ..\virtual\Scripts\pip freeze > requirements.txt 
+        
+        2. Procfile (Es un archivo sin extension): Le dice a heroku que web server utilizar, le decimos usa gunicorn que apunta a script1, usa la sintaxis:
+            web: servidorweb nombredelarchivopython: nombredelavariablequetienelainstanciaFlaskoDjango
+    
+        3. runtime.txt: Tiene la version de python que quieres que corra en heroku, si no tienes un runtime, heroku utilizara python 2.7
+             python-3.9.1
+            Puedes ver las versiones que tienes disponibles aqui https://devcenter.heroku.com/articles/python-support#supported-runtimes
+
+6. Subimos los archivos a Heroku, necesitamos crear un repositorio git en la carpeta donde trabajamos (Demo) 
+    git init
+Nos va a crear un folder .git, luego agregamos los archivos al repositorio
+    git add . 
+El . apunta a el Directorio actual
+Sigue subir (commit) los cambios
+    git commit -m "Notas que se deben agregar"
+Te va a mandar un mensaje de los archivos que fueron cambiados
+
+7. Para apuntar a alguna de tus aplicaciones para que heroku sepa donde se van a subir los archivos utilizamos el siguiente comando:
+    heroku git:remote --app tpmcb10rwa
+    heroku git:remote --app nombredetuapp
+
+8. Procedemos a empujar (push) los archivos, la primera vez te puede dar un error, si te da error tienes que iniciar sesion en git
+    git config --global user.email "tucorreo"
+    git config --global user.name "tunombredeusuario"
+
+Nota: Es importante que estes en el directorio donde esta tu archivo python 
+Puedes usar heroku open para abrir tu aplicacion o heroku info para ver informacion sobre tu aplicacion
+Flag es un valor que actua como una señal para una funcion o proceso, determina el siguiente paso del programa. 

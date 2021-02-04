@@ -1,0 +1,31 @@
+            <!---No tiene sentido agregar tantas configuraciones si se va a usar de plantilla-->
+            <!--Template inheritance, este es el nodo padre, el nodo hijo van a ser las paginas about y home  -->
+
+Script.py
+
+#Importamos el objeto de la clase Flask de  la libreria flask
+#Instanciamos ese objeto, __name__ es una variable especial que te dara el nombre del script de python
+#Cuando ejecutamos un script de python, python asigna el nombre de __main__ al archivo
+#Cuando importas un script a otro mantiene su nombre __Website.py__ en caso contrario le va a asignar el nombre de __main__
+#^ Lo que haces en la funcion se va a ver reflejado en esta url, puedes cambiarla si asi lo deseas 
+#^ Lo que haces en la funcion se va a ver reflejado en esta url, puedes cambiarla si asi lo deseas 
+#No podemos tener funciones con el mismo nombre
+#Si nombre = main corre la app
+La idea es que python busque archivos estaticos en un folder estatico
+Con flask no es necesario apuntar a rutas directas, simplemente con poner about.html o home.html el programa reconoce el archivo.
+Tambien cabe mencionar que es importante mantener una correcta jerarquia de los documentos
+La idea de poner las rutas en parentesis {{ Funcion('Folder donde esta el archivo',filename='css/nombre del archivo.extension') }} es que si por alguna razon la ruta cambia el programa pueda encontrarlo
+Recuerda que en css las clases son por puntos: header h1.logo
+
+
+Es importante crear un ambiente virtual de python (Python Virtual Environment), esto es para tener una instalacion en blanco de python, con solo las librerias que se van a utilizar en el programa
+Para crear un ambiente virtual necesitas Virtualenv, este debe ser creado en el mismo nivel con el folder principal que tiene los archivos de la aplicacion
+Creas una terminal en tu ambiente de trabajo (en este caso dentro de mysite) python -m venv virtual
+-m es un argumento que permite a python encontrar modulos para ejecucion que sean scripts, venv es el nombre de la libreria y virtual es el folder donde se van a guardar los archivos
+Se creo una instalacion aislada de python, lo que quiere decir que hay que instalarle las librerias que utilizamos para crear la aplicacion
+virtual\Scripts\pip install flask  <- Apuntamos al folder donde necesitamos la libreria y procedemos a instalarla
+Ahora corremos nuestra web app, para esto debemos apuntar al python nuevo 
+virtual\Scripts\python Demo\script1.py
+
+Antes de escribir cualquier codigo es importante tener una instalacion fresca de python y un orden en las carpetas 
+
